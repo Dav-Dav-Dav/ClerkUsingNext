@@ -1,6 +1,8 @@
-## What I did ##
-- I followed the instructions on this tutorial "https://clerk.dev/docs/quickstarts/get-started-with-nextjs" up until "Using getServerSideProps (SSR)"
-- .env.local has been left exposed on purpose to make it easier/faster to debug
+## What to do if the app stops working ##
+- Delete cookies and history.
+
+## Why does it stop working
+- I have not created sign out functionality currently
 
 ## Getting Started
 

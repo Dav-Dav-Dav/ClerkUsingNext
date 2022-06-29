@@ -1,5 +1,7 @@
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/router';
+import Link from "next/link";
+import Layout from "/components/Layout";
 
 //  List pages you want to be publicly accessible, or leave empty if
 //  every page requires authentication. Use this naming strategy:
@@ -11,29 +13,14 @@ const publicPages = [];
 
 function MyApp({ Component, pageProps }) {
   // Get the pathname
-  const { pathname } = useRouter();
+  const router = useRouter();
 
   // Check if the current route matches a public page
-  const isPublicPage = publicPages.includes(pathname);
 
   // If the current route is listed as public, render it directly
   // Otherwise, use Clerk to require authentication
   return (
     <ClerkProvider>
-<<<<<<< Updated upstream
-      {isPublicPage ? (
-        <Component {...pageProps} />
-      ) : (
-        <>
-          <SignedIn>
-            <Component {...pageProps} />
-          </SignedIn>
-          <SignedOut>
-            <RedirectToSignIn />
-          </SignedOut>
-        </>
-      )}
-=======
       <Layout>
         {publicPages.includes(router.pathname) ? (
           <Component {...pageProps} />
@@ -48,7 +35,6 @@ function MyApp({ Component, pageProps }) {
           </>
         )}
       </Layout>
->>>>>>> Stashed changes
     </ClerkProvider>
   );
 }
