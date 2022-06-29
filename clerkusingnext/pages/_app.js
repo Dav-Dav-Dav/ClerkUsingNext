@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
   // Otherwise, use Clerk to require authentication
   return (
     <ClerkProvider>
+<<<<<<< Updated upstream
       {isPublicPage ? (
         <Component {...pageProps} />
       ) : (
@@ -32,6 +33,22 @@ function MyApp({ Component, pageProps }) {
           </SignedOut>
         </>
       )}
+=======
+      <Layout>
+        {publicPages.includes(router.pathname) ? (
+          <Component {...pageProps} />
+        ) : (
+          <>
+            <SignedIn>
+              <Component {...pageProps} />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        )}
+      </Layout>
+>>>>>>> Stashed changes
     </ClerkProvider>
   );
 }
